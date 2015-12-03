@@ -63,8 +63,8 @@ public abstract class OrbitalProperties {
   }
 
   /**
-   * Generate a standard property name for some attribute of a given class. This is used to normalize all class-specific property names to the form: <FQCN>.
-   * <attribute> . For example, calling this method with (org.evekit.model.corporation.MemberTracking.class, "max_results") will yield:
+   * Generate a standard property name for some attribute of a given class. This is used to normalize all class-specific property names to the form:
+   * "FQCN.attribute". For example, calling this method with (org.evekit.model.corporation.MemberTracking.class, "max_results") will yield:
    * org.evekit.model.corporation.MemberTracking.attr.max_results
    * 
    * @param caller
@@ -80,8 +80,8 @@ public abstract class OrbitalProperties {
   /**
    * Convenience function to return a value in the range [1, max] where:
    * <ul>
-   * <li>max is returned if "provided" < 1 (that is, < 1 is treated as use available max);
-   * <li>max is returned if "provided" > max;
+   * <li>max is returned if "provided" &lt; 1 (that is, &lt; 1 is treated as use available max);
+   * <li>max is returned if "provided" &gt; max;
    * <li>otherwise, "provided" is returned.
    * </ul>
    * 

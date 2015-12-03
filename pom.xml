@@ -13,5 +13,12 @@
   </parent>
   
   
-  <version>1.0.1</version>
+  <version>1.0.0</version>
+  <url>https://github.com/OrbitalEnterprises/license</url>
+  <scm>
+  	<url>https://github.com/OrbitalEnterprises/base</url>
+  	<connection>scm:git:https://github.com/OrbitalEnterprises/base.git</connection>
+  	<tag>HEAD</tag>
+  	<developerConnection>scm:git:git@github.com:OrbitalEnterprises/base.git</developerConnection>
+  </scm>
 </project>
