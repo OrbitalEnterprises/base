@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/OrbitalEnterprises/base.svg?branch=master)](https://travis-ci.org/OrbitalEnterprises/base)
+
 # Base Utilities for for Orbital Enterprises tools
 
 This module provides property management and other simple
@@ -8,6 +10,23 @@ The usual pattern is to store cross-session configuration properties
 in a persistent store which preserves settings across restarts.  
 Properties not intended to be changed at runtime, or default values for properties, are stored
 in properties files which are loaded at startup.  We explain this pattern in more detail below.
+
+## Build/Depend
+
+We use [Maven](http://maven.apache.org) to build the base library, and publish to [Maven Central](http://search.maven.org/).
+Therefore, the easiest way to use the base library is to add the following dependency to your pom.xml:
+
+```xml
+<dependency>
+    <groupId>enterprises.orbital</groupId>
+    <artifactId>base</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+You can find more details about the artifact [here](http://mvnrepository.com/artifact/enterprises.orbital/base).
+
+The base library has no additional dependencies.  So if you're not using Maven you can simply down the jar from Maven Central.
 
 ## Simple Properties Management
 
