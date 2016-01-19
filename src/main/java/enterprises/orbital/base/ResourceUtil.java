@@ -84,6 +84,7 @@ public class ResourceUtil {
    * @throws IOException
    *           if an error occurs while reading resources
    * @throws URISyntaxException
+   *           if an error occurs attempting to construct the path for the resource listing root (this should never happen).
    */
   public static void forAllEntries(String root, String fileSuffix, OnEntry toDo) throws IOException, URISyntaxException {
     Queue<String> path = new LinkedList<String>();

@@ -2,6 +2,7 @@ package enterprises.orbital.base;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
@@ -127,6 +128,10 @@ public abstract class OrbitalProperties {
    */
   public static long getCurrentTime() {
     return timeGenerator.getTime();
+  }
+
+  public static Date getCurrentDate() {
+    return new Date(getCurrentTime());
   }
 
   public static String getGlobalProperty(String key) {
