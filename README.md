@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/OrbitalEnterprises/base.svg?branch=master)](https://travis-ci.org/OrbitalEnterprises/base)
+[![Build Status](https://travis-ci.org/OrbitalEnterprises/orbital-base.svg?branch=master)](https://travis-ci.org/OrbitalEnterprises/orbital-base)
 
 # Base Utilities for for Orbital Enterprises tools
 
