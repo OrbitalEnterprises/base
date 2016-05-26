@@ -12,12 +12,12 @@
   	<version>1.0.0</version>
   </parent>
   
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <url>https://github.com/OrbitalEnterprises/license</url>
   <scm>
   	<url>https://github.com/OrbitalEnterprises/base</url>
   	<connection>scm:git:https://github.com/OrbitalEnterprises/base.git</connection>
-  	<tag>rel_1_0_1</tag>
+  	<tag>rel_1_0_2</tag>
   	<developerConnection>scm:git:git@github.com:OrbitalEnterprises/base.git</developerConnection>
   </scm>
 
