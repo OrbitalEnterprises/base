@@ -2,6 +2,7 @@ package enterprises.orbital.base;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Properties;
@@ -43,7 +44,9 @@ public abstract class OrbitalProperties {
    * @throws IOException
    *           if an error occurs while loading the file
    */
-  public static final void addPropertyFile(String path) throws IOException {
+  public static final void addPropertyFile(
+                                           String path)
+    throws IOException {
     synchronized (loadedFiles) {
       if (loadedFiles.contains(path)) return;
       loadedFiles.add(path);
@@ -74,7 +77,9 @@ public abstract class OrbitalProperties {
    *          the attribute name to tag onto the class.
    * @return a normalized class-specific property name for the given class and attribute.
    */
-  public static final String getPropertyName(Class<?> caller, String attribute) {
+  public static final String getPropertyName(
+                                             Class<?> caller,
+                                             String attribute) {
     return caller.getName() + ".attr." + attribute;
   }
 
@@ -92,7 +97,9 @@ public abstract class OrbitalProperties {
    *          maximum value to allow.
    * @return a value in the range [1, max] as defined above.
    */
-  public static final int getNonzeroLimited(int provided, int max) {
+  public static final int getNonzeroLimited(
+                                            int provided,
+                                            int max) {
     if (provided < 1) provided = max;
     return Math.min(provided, max);
   }
@@ -106,7 +113,8 @@ public abstract class OrbitalProperties {
 
   private static TimeGenerator timeGenerator;
 
-  public static void setTimeGenerator(TimeGenerator tg) {
+  public static void setTimeGenerator(
+                                      TimeGenerator tg) {
     timeGenerator = tg;
   }
 
@@ -134,28 +142,51 @@ public abstract class OrbitalProperties {
     return new Date(getCurrentTime());
   }
 
-  public static String getGlobalProperty(String key) {
+  public static String getGlobalProperty(
+                                         String key) {
     return globalProperties.getProperty(key);
   }
 
-  public static String getGlobalProperty(String key, String def) {
+  public static String getGlobalProperty(
+                                         String key,
+                                         String def) {
     return globalProperties.getProperty(key, def);
   }
 
-  public static boolean getBooleanGlobalProperty(String key) {
+  public static boolean getBooleanGlobalProperty(
+                                                 String key) {
     return Boolean.valueOf(globalProperties.getProperty(key));
   }
 
-  public static boolean getBooleanGlobalProperty(String key, boolean def) {
+  public static boolean getBooleanGlobalProperty(
+                                                 String key,
+                                                 boolean def) {
     return Boolean.valueOf(globalProperties.getProperty(key, String.valueOf(def)));
   }
 
-  public static long getLongGlobalProperty(String key) {
+  public static long getLongGlobalProperty(
+                                           String key) {
     return Long.valueOf(globalProperties.getProperty(key));
   }
 
-  public static long getLongGlobalProperty(String key, long def) {
+  public static long getLongGlobalProperty(
+                                           String key,
+                                           long def) {
     return Long.valueOf(globalProperties.getProperty(key, String.valueOf(def)));
+  }
+
+  public static interface DateFormatGenerator {
+    public DateFormat generate();
+  }
+
+  public static ThreadLocal<DateFormat> dateFormatFactory(
+                                                          final DateFormatGenerator generator) {
+    return new ThreadLocal<DateFormat>() {
+      @Override
+      protected DateFormat initialValue() {
+        return generator.generate();
+      }
+    };
   }
 
 }
