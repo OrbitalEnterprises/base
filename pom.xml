@@ -9,15 +9,15 @@
   <parent>
   	<groupId>enterprises.orbital</groupId>
   	<artifactId>license</artifactId>
-  	<version>1.0.0</version>
+  	<version>1.1.0</version>
   </parent>
   
-  <version>1.0.2</version>
+  <version>2.0.0</version>
   <url>https://github.com/OrbitalEnterprises/license</url>
   <scm>
   	<url>https://github.com/OrbitalEnterprises/base</url>
   	<connection>scm:git:https://github.com/OrbitalEnterprises/base.git</connection>
-  	<tag>rel_1_0_2</tag>
+  	<tag>rel_2_0_0</tag>
   	<developerConnection>scm:git:git@github.com:OrbitalEnterprises/base.git</developerConnection>
   </scm>
 
