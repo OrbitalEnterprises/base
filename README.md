@@ -20,13 +20,13 @@ Therefore, the easiest way to use the base library is to add the following depen
 <dependency>
     <groupId>enterprises.orbital</groupId>
     <artifactId>base</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
 You can find more details about the artifact [here](http://mvnrepository.com/artifact/enterprises.orbital/base).
 
-The base library has no additional dependencies.  So if you're not using Maven you can simply down the jar from Maven Central.
+The base library has no additional dependencies.  So if you're not using Maven you can simply download the jar from Maven Central.
 
 ## Simple Properties Management
 
