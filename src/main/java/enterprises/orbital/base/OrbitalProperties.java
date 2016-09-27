@@ -142,37 +142,43 @@ public abstract class OrbitalProperties {
     return new Date(getCurrentTime());
   }
 
+  public static void setGlobalProperty(
+                                       String key,
+                                       String value) {
+    globalProperties.setProperty(key, value);
+  }
+
   public static String getGlobalProperty(
                                          String key) {
-    return globalProperties.getProperty(key);
+    return globalProperties.getProperty(key, System.getProperty(key));
   }
 
   public static String getGlobalProperty(
                                          String key,
                                          String def) {
-    return globalProperties.getProperty(key, def);
+    return globalProperties.getProperty(key, System.getProperty(key, def));
   }
 
   public static boolean getBooleanGlobalProperty(
                                                  String key) {
-    return Boolean.valueOf(globalProperties.getProperty(key));
+    return Boolean.valueOf(globalProperties.getProperty(key, System.getProperty(key)));
   }
 
   public static boolean getBooleanGlobalProperty(
                                                  String key,
                                                  boolean def) {
-    return Boolean.valueOf(globalProperties.getProperty(key, String.valueOf(def)));
+    return Boolean.valueOf(globalProperties.getProperty(key, System.getProperty(key, String.valueOf(def))));
   }
 
   public static long getLongGlobalProperty(
                                            String key) {
-    return Long.valueOf(globalProperties.getProperty(key));
+    return Long.valueOf(globalProperties.getProperty(key, System.getProperty(key)));
   }
 
   public static long getLongGlobalProperty(
                                            String key,
                                            long def) {
-    return Long.valueOf(globalProperties.getProperty(key, String.valueOf(def)));
+    return Long.valueOf(globalProperties.getProperty(key, System.getProperty(key, String.valueOf(def))));
   }
 
   public static interface DateFormatGenerator {

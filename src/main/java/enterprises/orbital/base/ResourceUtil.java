@@ -23,7 +23,10 @@ public class ResourceUtil {
    * Interface to implement for iteration of a collection of resources.
    */
   public static interface OnEntry {
-    public void nextEntry(String name, InputStream entry);
+    public void nextEntry(
+                          String name,
+                          InputStream entry)
+      throws IOException;
   }
 
   /**
@@ -37,7 +40,9 @@ public class ResourceUtil {
    * @throws IOException
    *           if an IO error occurs while reading children list
    */
-  protected static String[] getResourceListing(String path) throws URISyntaxException, IOException {
+  protected static String[] getResourceListing(
+                                               String path)
+    throws URISyntaxException, IOException {
     URL dirURL = Thread.currentThread().getContextClassLoader().getResource(path);
     if (dirURL != null) {
       if (dirURL.getProtocol().equals("file")) {
@@ -86,7 +91,11 @@ public class ResourceUtil {
    * @throws URISyntaxException
    *           if an error occurs attempting to construct the path for the resource listing root (this should never happen).
    */
-  public static void forAllEntries(String root, String fileSuffix, OnEntry toDo) throws IOException, URISyntaxException {
+  public static void forAllEntries(
+                                   String root,
+                                   String fileSuffix,
+                                   OnEntry toDo)
+    throws IOException, URISyntaxException {
     Queue<String> path = new LinkedList<String>();
     if (!root.endsWith("/")) root = root + "/";
     String[] paths = getResourceListing(root);
