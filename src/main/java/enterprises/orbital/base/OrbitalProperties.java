@@ -113,20 +113,25 @@ public abstract class OrbitalProperties {
 
   private static TimeGenerator timeGenerator;
 
+  private static TimeGenerator DEFAULT = new TimeGenerator() {
+
+    @Override
+    public long getTime() {
+      return System.currentTimeMillis();
+    }
+
+  };
+
   public static void setTimeGenerator(
                                       TimeGenerator tg) {
-    timeGenerator = tg;
+    if (tg != null)
+      timeGenerator = tg;
+    else
+      timeGenerator = DEFAULT;
   }
 
   static {
-    setTimeGenerator(new TimeGenerator() {
-
-      @Override
-      public long getTime() {
-        return System.currentTimeMillis();
-      }
-
-    });
+    setTimeGenerator(DEFAULT);
   }
 
   /**
